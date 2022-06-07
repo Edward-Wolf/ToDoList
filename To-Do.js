@@ -1,7 +1,7 @@
 let todoItems = [];
 
 function renderToDo (todo) {
-    const list = document.querySelector('js-todo-list');
+    const list = document.querySelector('.js-todo-list');
 
     const isChecked = todo.checked ? 'done': '';
 
@@ -31,11 +31,11 @@ function addToDo (text) {
     renderToDo(todo);
 }
 
-const form = document.querySelector('js-form');
+const form = document.querySelector('.js-form');
 form.addEventListener('submit', event => {
     event.preventDefault();
 
-    const input = document.querySelector('js-todo-input');
+    const input = document.querySelector('.js-todo-input');
 
     const text = input.value.trim();
     if (text !== '') {
