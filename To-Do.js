@@ -88,7 +88,7 @@ list.addEventListener('click', event => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const ref - localStorage.getItem('todoItemsRef');
+    const ref = localStorage.getItem('todoItemsRef');
     if(ref) {
         todoItems = JSON.parse(ref);
         todoItems.forEach(t => {
