@@ -2,6 +2,8 @@ let todoItems = [];
 
 function renderToDo (todo) {
     const list = document.querySelector('.js-todo-list');
+    
+    const item = document.querySelector(`[data-key='${todo.id}']};
 
     const isChecked = todo.checked ? 'done': '';
 
@@ -17,7 +19,11 @@ function renderToDo (todo) {
         </button>
     `;
 
-    list.append(node);
+    if (item) {
+        list.replaceChild(node, item);
+    } else {
+        list.append(node);
+    }
 }
 
 function addToDo (text) {
@@ -31,6 +37,12 @@ function addToDo (text) {
     renderToDo(todo);
 }
 
+function toggleDone(key) {
+    const index = todoItems.findIndex(item => item.id === Number(key));
+    todoItems[index].checked = !todoItems[index].checked;
+    renderToDo(todoItems[index]);
+}
+
 const form = document.querySelector('.js-form');
 form.addEventListener('submit', event => {
     event.preventDefault();
@@ -42,5 +54,14 @@ form.addEventListener('submit', event => {
         addToDo(text);
         input.value = '';
         input.focus();
+    }
+});
+
+const list = document.querySelector('.js-todo-list');
+
+list.addEventListener('click', event => {
+    if (event.target.classList.contains('js-tick')) {
+        const itemKey = event.target.parentElement.dataset.key;
+        toggleDone(itemKey);
     }
 });
