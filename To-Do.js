@@ -24,7 +24,7 @@ function addToDo (text) {
     const todo = {
         text,
         checked: false,
-        id: Date.now().
+        id: Date.now(),
     };
 
     todoItems.push(todo);
