@@ -3,7 +3,7 @@ let todoItems = [];
 function renderToDo (todo) {
     const list = document.querySelector('.js-todo-list');
     
-    const item = document.querySelector(`[data-key='${todo.id}']};
+    const item = document.querySelector(`[data-key='${todo.id}'])};
 
     const isChecked = todo.checked ? 'done': '';
 
